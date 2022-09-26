@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    GameObject score_object;
+    private GameObject score_object;
     //Text scorepoint;
     //Score scorescript;
     //int point;
@@ -19,9 +19,11 @@ public class Score : MonoBehaviour
 
     void Update()
     {
+        //"ToString" is convert "int" to "string" (ToString은 int를 string으로 바꿔준다.)
         score_object.GetComponent<Text>().text = GameManager.instance.Score.ToString();
     }
-    private void OnCollisionExit2D(Collision2D other)
+
+    void OnCollisionExit2D(Collision2D other)
     {
         //score_object.GetComponent<Score>().point++;
         GameManager.instance.Score++;

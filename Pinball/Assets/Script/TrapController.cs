@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapController : MonoBehaviour
 {    
-    Collider2D collide;
+    private Collider2D collide;
 
     void Start()
     {
@@ -14,9 +14,8 @@ public class TrapController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
-        {
             collide.isTrigger = true;
-        }
+
     }
 
     void OnTriggerExit2D(Collider2D other)

@@ -15,7 +15,7 @@ public class Telepotation : MonoBehaviour
         ball_rigid2d = GameObject.Find("Ball").GetComponent<Rigidbody2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager.instance.Telepote(GameObject.Find("Ball"), tpos);
         //GameManager의 Telepote 함수 사용 33줄

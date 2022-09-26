@@ -32,8 +32,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null) { instance = this; }
+
         else if (instance != this) Destroy(gameObject);
 
+        //If change a scean, but never destroy this gameobject.
         DontDestroyOnLoad(instance);
     }
 
@@ -42,10 +44,11 @@ public class GameManager : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         ball.transform.position = tpos.transform.position;
     }
-    void Start()
-    {
+
+    //void Start()
+    //{
         
-    }
+    //}
 
     void Update()
     {

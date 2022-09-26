@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Life : MonoBehaviour
 {
-    Text life;
+    private Text life;
 
     void Start()
     {
