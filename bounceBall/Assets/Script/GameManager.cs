@@ -9,23 +9,26 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject gameoverText;
     public GameObject gameclearText;
-    private bool isGameOver;
+    bool isGameOver;
+    bool isGameClear;
 
     private void Awake()
     {
         if (instance == null) { instance = this; }
         else if (instance != this) Destroy(gameObject);
 
-        DontDestroyOnLoad(instance);
+        //DontDestroyOnLoad(instance);
     }
     void Start()
     {
-        isGameOver = false;    
+        isGameOver = false;
+        isGameClear = false;
     }
 
     public void Update()
     {
-        if (isGameOver)
+        
+        if (isGameOver || isGameClear)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
+        isGameClear = true;
         gameclearText.SetActive(true);
     }
 }

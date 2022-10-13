@@ -14,6 +14,9 @@ TagManager:
   - R_Shooter
   - L_Shooter
   - Station
+  - 1
+  - 2
+  - 3
   layers:
   - Default
   - TransparentFX
