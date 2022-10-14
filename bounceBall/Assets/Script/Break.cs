@@ -9,6 +9,17 @@ public class Break : MonoBehaviour
     {
         transform.parent.GetComponent<BreakBlockSpawn>().timestart = true;
         gameObject.SetActive(false);
+
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
+    IEnumerator t()
+    {
+
     }
 }
 
