@@ -5,25 +5,42 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    GameObject score_object;
-    //Text scorepoint;
-    //Score scorescript;
-    //int point;
+    Text score_object;
+    BallController ball_Chance;
+
+    //uint score_set = 100;
 
     void Start()
     {
-        score_object = GameObject.Find("Score");
-        //scoretext = GameObject.Find("Score").GetComponent<text>();
-        //scorescript = GameObject.Find("Score").GetComponent<Score>();
+        score_object = GameObject.Find("Score").GetComponent<Text>();
+        ball_Chance = GameObject.Find("Ball").GetComponent<BallController>();
     }
 
     void Update()
     {
-        score_object.GetComponent<Text>().text = GameManager.instance.Score.ToString();
+        score_object.text = GameManager.instance.Score.ToString();
     }
-    private void OnCollisionExit2D(Collision2D other)
+
+    void OnCollisionExit2D(Collision2D other)
     {
-        //score_object.GetComponent<Score>().point++;
-        GameManager.instance.Score++;
+        //GameManager.instance.Score += score_set;
+        //ball_Chance.doubleChance++;
+        //ball_Chance.lifeChance++;
+
+        //if (ball_Chance.doubleChance == 5)
+        //{
+        //    GameManager.instance.Score += score_set;
+        //    ball_Chance.doubleChance = 0;
+        //}
+
+        //if (ball_Chance.lifeChance == 15)
+        //{
+        //    GameManager.instance.Lifecount++;
+        //    if (GameManager.instance.Lifecount == 4)
+        //        GameManager.instance.Score += 3000;
+
+        //    ball_Chance.lifeChance = 0;
+        //}
+
     }
 }

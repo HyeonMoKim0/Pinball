@@ -6,7 +6,6 @@ public class Pin2Controller : MonoBehaviour
 {
     public Animation anima;
 
-
     void Start()
     {
         anima = GetComponent<Animation>();
@@ -14,6 +13,7 @@ public class Pin2Controller : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X)) { anima.Play(); }
+        if (Input.GetKeyDown(KeyCode.X))
+            anima.Play();
     }
 }

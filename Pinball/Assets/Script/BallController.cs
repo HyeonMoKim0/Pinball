@@ -10,10 +10,16 @@ public class BallController : MonoBehaviour
     Animation spring_anima;
     public GameObject startpos;
 
-    public float upspeed;
+    public ushort doubleChance; //5의 배수마다 충돌시 점수 2배
+    public ushort lifeChance; //Pointball에 15번마다 충돌할 경우 목숨 +1
+
+    uint score_set = 100;   
+
+    [SerializeField] float upspeed; //기본 300
     float time;
     float keydown;
     float keyup;
+
     bool run = true;
 
     void Start()
@@ -27,13 +33,15 @@ public class BallController : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.C))
-        {
             keydown = time;
-        }
+
+
         if (Input.GetKeyUp(KeyCode.C))
         {
             keyup = time;
+
             if (run)
             {
                 rigid2D.AddForce(transform.up * (500 * Mathf.Clamp(keyup - keydown, 2, 4.5f)));
@@ -46,11 +54,10 @@ public class BallController : MonoBehaviour
             rigid2D.freezeRotation = true;
             transform.rotation = Quaternion.Euler(Vector3.zero);
             GameManager.instance.Telepote(GameObject.Find("Ball"), startpos);
-            //GameManager의 Telepote 함수 사용 33줄
-            //rigid2D.velocity = Vector2.zero;
-            //transform.position = startpos.transform.position;
             GameManager.instance.Lifecount--;
-            
+
+            doubleChance = 0;
+            lifeChance = 0;
         }
     }
 
@@ -64,6 +71,7 @@ public class BallController : MonoBehaviour
                 rigid2D.AddForce(transform.up * upspeed);
             }
         }
+
         if (pin2.anima.isPlaying)
         {
             if (other.gameObject.CompareTag("Pin2"))
@@ -73,42 +81,35 @@ public class BallController : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("Spring")) 
-        {
-            run = true; 
-        }
+        if (other.gameObject.CompareTag("Spring"))
+            run = true;
     }
 
     void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Spring"))
-        {
             run = false;
+
+        if (other.gameObject.CompareTag("Pointball"))
+        {
+            GameManager.instance.Score += score_set;
+            doubleChance++;
+            lifeChance++;
+
+            if (doubleChance == 5)
+            {
+                GameManager.instance.Score += score_set;
+                doubleChance = 0;
+            }
+
+            if (lifeChance == 15)
+            {
+                GameManager.instance.Lifecount++;
+                if (GameManager.instance.Lifecount == 4)
+                    GameManager.instance.Score += 3000;
+
+                lifeChance = 0;
+            }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-//if (pincontroller.animator.GetCurrentAnimatorStateInfo(0).IsName("Move") && pincontroller.animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-//{
-//    if (other.gameObject.CompareTag("Pin"))
-//    {
-//        rigid2D.AddForce(transform.up * upspeed);
-//    }
-//}
-
-//else if (pincontroller.animator.GetCurrentAnimatorStateInfo(0).IsName("Move2") && pincontroller.animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-//{
-//    if (other.gameObject.CompareTag("Pin2"))
-//    {
-//        rigid2D.AddForce(transform.up * upspeed);
-//    }
-//}

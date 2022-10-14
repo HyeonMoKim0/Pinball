@@ -5,8 +5,7 @@ using UnityEngine;
 public class Pin1Controller : MonoBehaviour
 {
     public Animation anima;
-    
-    
+
     void Start()
     {
         anima = GetComponent<Animation>();
@@ -14,6 +13,7 @@ public class Pin1Controller : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z)) { anima.Play(); }
+        if (Input.GetKeyDown(KeyCode.Z))
+            anima.Play();
     }
 }

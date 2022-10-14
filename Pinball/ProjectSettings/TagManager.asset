@@ -9,6 +9,7 @@ TagManager:
   - Trap
   - Pin2
   - Spring
+  - Pointball
   layers:
   - Default
   - TransparentFX

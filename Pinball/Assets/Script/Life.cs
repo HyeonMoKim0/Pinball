@@ -20,7 +20,7 @@ public class Life : MonoBehaviour
         if (GameManager.instance.Lifecount == 0)
         {
             GameManager.instance.DeathCount++;
-            //SceneManager.LoadScene("GameScene");  GameManager¿« Updateø° ø≈±Ë 
+            //SceneManager.LoadScene("GameScene");  GameManager¿« Updateø° ø≈±Ë(±∏)
         }
     }
 }

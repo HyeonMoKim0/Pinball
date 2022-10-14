@@ -18,9 +18,6 @@ public class Telepotation : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager.instance.Telepote(GameObject.Find("Ball"), tpos);
-        //GameManager의 Telepote 함수 사용 33줄
-        //ball_rigid2d.velocity = Vector2.zero;
-        //ball_rigid2d.transform.position = tpos.transform.position;
 
         ball_rigid2d.velocity = boost;
     }
