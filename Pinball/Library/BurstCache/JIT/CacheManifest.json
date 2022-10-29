@@ -3,11 +3,11 @@
   "Assemblies": [
     {
       "FullName": "Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-10-14T05:34:23.6690225Z"
+      "LastWriteTime": "2022-10-29T07:05:50.8621086Z"
     },
     {
       "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-10-14T05:34:23.3592847Z"
+      "LastWriteTime": "2022-10-29T07:05:50.4222322Z"
     },
     {
       "FullName": "UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -19,7 +19,7 @@
     },
     {
       "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-10-14T05:34:23.3154011Z"
+      "LastWriteTime": "2022-10-29T07:05:50.3843332Z"
     },
     {
       "FullName": "netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
@@ -31,15 +31,11 @@
     },
     {
       "FullName": "Unity.2D.Common.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-10-14T05:34:23.4202141Z"
-    },
-    {
-      "FullName": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-      "LastWriteTime": "2022-09-02T01:40:48Z"
+      "LastWriteTime": "2022-10-29T07:05:50.5773437Z"
     },
     {
       "FullName": "Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-10-14T05:34:22.9770232Z"
+      "LastWriteTime": "2022-10-29T07:05:50.2581622Z"
     },
     {
       "FullName": "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -79,8 +75,7 @@
         5,
         4,
         7,
-        2,
-        8
+        2
       ]
     },
     {
@@ -90,14 +85,13 @@
       "LinkName": "104599FDEEB36FAE",
       "AssemblyDependencyIndices": [
         6,
+        8,
         9,
         10,
-        11,
         3,
         5,
         1,
-        7,
-        8
+        7
       ]
     },
     {
@@ -129,14 +123,13 @@
       "LinkName": "4E9252389FAD9FEE",
       "AssemblyDependencyIndices": [
         0,
-        3,
         7,
+        3,
         6,
         1,
         4,
         5,
-        2,
-        8
+        2
       ]
     }
   ]

@@ -106,7 +106,11 @@ public class BallController : MonoBehaviour
             {
                 GameManager.instance.Lifecount++;
                 if (GameManager.instance.Lifecount == 4)
+                {
                     GameManager.instance.Score += 3000;
+                    GameManager.instance.Lifecount--;
+                }
+                    
 
                 lifeChance = 0;
             }
