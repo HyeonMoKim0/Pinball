@@ -10,10 +10,10 @@ public class BallController : MonoBehaviour
     Animation spring_anima;
     public GameObject startpos;
 
-    public ushort doubleChance; //5의 배수마다 충돌시 점수 2배
-    public ushort lifeChance; //Pointball에 15번마다 충돌할 경우 목숨 +1
+    [HideInInspector] public ushort doubleChance; //5의 배수마다 충돌시 점수 2배
+    [HideInInspector] public ushort lifeChance; //Pointball에 15번마다 충돌할 경우 목숨 +1
 
-    uint score_set = 100;   
+    [HideInInspector] public uint score_set = 100;   
 
     [SerializeField] float upspeed; //기본 300
     float time;
@@ -37,7 +37,6 @@ public class BallController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
             keydown = time;
 
-
         if (Input.GetKeyUp(KeyCode.C))
         {
             keyup = time;
@@ -57,6 +56,29 @@ public class BallController : MonoBehaviour
             GameManager.instance.Lifecount--;
 
             doubleChance = 0;
+            lifeChance = 0;
+        }
+
+        BonusCheck();
+    }
+
+    void BonusCheck()
+    {
+        if (doubleChance == 5)
+        {
+            GameManager.instance.Score += score_set;
+            doubleChance = 0;
+        }
+
+        if (lifeChance == 15)
+        {
+            GameManager.instance.Lifecount++;
+            if (GameManager.instance.Lifecount == 4)
+            {
+                GameManager.instance.Score += 3000;
+                GameManager.instance.Lifecount--;
+            }
+
             lifeChance = 0;
         }
     }
@@ -95,25 +117,6 @@ public class BallController : MonoBehaviour
             GameManager.instance.Score += score_set;
             doubleChance++;
             lifeChance++;
-
-            if (doubleChance == 5)
-            {
-                GameManager.instance.Score += score_set;
-                doubleChance = 0;
-            }
-
-            if (lifeChance == 15)
-            {
-                GameManager.instance.Lifecount++;
-                if (GameManager.instance.Lifecount == 4)
-                {
-                    GameManager.instance.Score += 3000;
-                    GameManager.instance.Lifecount--;
-                }
-                    
-
-                lifeChance = 0;
-            }
         }
     }
 }

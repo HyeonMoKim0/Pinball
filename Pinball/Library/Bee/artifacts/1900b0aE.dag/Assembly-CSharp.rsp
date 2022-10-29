@@ -363,7 +363,17 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Script/BustUp.cs"
+"Assets/Script/BallController.cs"
+"Assets/Script/GameManager.cs"
+"Assets/Script/Life.cs"
+"Assets/Script/Pin1Controller.cs"
+"Assets/Script/Pin2Controller.cs"
+"Assets/Script/Reflect/ReflectSpeed.cs"
+"Assets/Script/Reflect/ReflectSpeed_Top.cs"
+"Assets/Script/Score.cs"
+"Assets/Script/SlipWall.cs"
+"Assets/Script/Telepotation.cs"
+"Assets/Script/TrapController.cs"
 -langversion:9.0
 
 /deterministic

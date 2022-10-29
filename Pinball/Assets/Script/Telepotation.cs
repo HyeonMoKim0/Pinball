@@ -5,6 +5,7 @@ using UnityEngine;
 public class Telepotation : MonoBehaviour
 {
     public GameObject tpos;
+    GameObject player;
 
     public Vector2 boost;
 
@@ -12,13 +13,17 @@ public class Telepotation : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("Ball");
         ball_rigid2d = GameObject.Find("Ball").GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager.instance.Telepote(GameObject.Find("Ball"), tpos);
-
-        ball_rigid2d.velocity = boost;
+        if (collision.gameObject == player)
+        {
+            GameManager.instance.Telepote(player, tpos);
+            ball_rigid2d.velocity = boost;
+        }
+        
     }
 }
