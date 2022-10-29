@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\Score.cs" />
     <Compile Include="Assets\Script\Telepotation.cs" />
     <Compile Include="Assets\Script\TrapController.cs" />
+    <Compile Include="Assets\Script\BustUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
