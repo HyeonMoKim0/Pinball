@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    public static BallController instance;
+
     Pin1Controller pin1;
     Pin2Controller pin2;
     Rigidbody2D rigid2D;
@@ -15,6 +17,18 @@ public class BallController : MonoBehaviour
     float keydown;
     float keyup;
     bool run = true;
+
+    [SerializeField] public ushort doubleChance = 0;
+    [SerializeField] public ushort lifeChance = 0;
+    public uint score_set = 0;
+
+    void Awake()
+    {
+        if (instance == null) { instance = this; }
+        else if (instance != this) Destroy(gameObject);
+
+        DontDestroyOnLoad(instance);
+    }
 
     void Start()
     {
@@ -52,6 +66,19 @@ public class BallController : MonoBehaviour
             GameManager.instance.Lifecount--;
             
         }
+
+        if (doubleChance == 15)
+        {
+            GameManager.instance.Score += 1000;
+            doubleChance = 0;
+        }
+        
+        if (lifeChance == 30)
+        {
+            GameManager.instance.Score += 3000;
+            lifeChance = 0;
+        }
+
     }
 
     void OnCollisionStay2D(Collision2D other)

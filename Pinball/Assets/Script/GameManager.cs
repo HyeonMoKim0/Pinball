@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] int _deathCount = 0;
     [SerializeField] int life_count = 3;
-    int score_point = 0;
+    uint score_point = 0;
 
     public int DeathCount
     {
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         set { life_count = value; }
     }
 
-    public int Score
+    public uint Score
     {
         get { return score_point; }
         set { score_point = value; }
@@ -42,18 +42,15 @@ public class GameManager : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         ball.transform.position = tpos.transform.position;
     }
-    void Start()
-    {
-        
-    }
-
+    
     void Update()
     {
         if (life_count == 0)
         {
+            Debug.Log("당신의 최종 점수는" + score_point);
             SceneManager.LoadScene("GameScene");
+            score_point = 0;
             life_count = 3;
         }
-
     }
 }
