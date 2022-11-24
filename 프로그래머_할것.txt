@@ -1,0 +1,20 @@
+플레이어가 계속 가만히 있을 때의 문제점
+
+private void OnDisable()
+    {
+        
+    }
+
+    IEnumerator t() - 유니티 기능 : 코루틴
+    {
+
+    }
+Shooter 밟았을 때 키입력이 안되게(몇초 동안) 
+Shooter 로 발사후 Shooter 부딪혔을 때 무중력 해결
+
+UI 추가 - 게임 클리어 시 시간에 따라 별 1,2,3개 띄우기
+개선 Reset 기능 없애고 restart 버튼과 main menu 버튼 추가
+main menu(stage) 씬 추가 -> select stage 에서 3개 이상 챕터 생성 
+runtime중 일시 정지 버튼 추가 (기능 포함)
+
+승민 소원 - 코드 짜면서 코루틴 이해하기, 동작 이해
