@@ -52,7 +52,6 @@ public class Down : MonoBehaviour
 
         if (touchingWithPlayer && !bottomTouchingWithPlayer && !touchingWithGround)
         {
-            Debug.Log("낙하!");
             transform.position = new Vector2(transform.position.x,
                                             transform.position.y - ((1 - gravity) * Time.deltaTime * 30f));
             gravity *= 0.98f;
@@ -62,7 +61,6 @@ public class Down : MonoBehaviour
 
         else
         {
-            Debug.Log("제자리!");
             //downRigid.isKinematic = true;
             //downRigid.gravityScale = 0f;
         }
